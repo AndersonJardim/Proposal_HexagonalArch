@@ -58,6 +58,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPropostal.API", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoProposta.Infra.Data", "ProjetoProposta.Infra.Data\ProjetoProposta.Infra.Data.csproj", "{13509943-0FA0-4DD1-802F-89813E811F9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoProposta.Infra.Messages", "ProjetoProposta.Infra.Messages\ProjetoProposta.Infra.Messages.csproj", "{6FF20E72-3FE3-4C9E-8C8C-613E150122ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{13509943-0FA0-4DD1-802F-89813E811F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13509943-0FA0-4DD1-802F-89813E811F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13509943-0FA0-4DD1-802F-89813E811F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF20E72-3FE3-4C9E-8C8C-613E150122ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF20E72-3FE3-4C9E-8C8C-613E150122ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF20E72-3FE3-4C9E-8C8C-613E150122ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF20E72-3FE3-4C9E-8C8C-613E150122ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{B68FE83A-FD16-4740-99A3-08CF945C00E7} = {FD593D12-91B6-4E31-BEEB-4A978580C1FD}
 		{E7AAE429-0B84-409E-A343-FBB26A022D36} = {B68FE83A-FD16-4740-99A3-08CF945C00E7}
 		{13509943-0FA0-4DD1-802F-89813E811F9B} = {11B49AE9-E783-4C95-8389-F9E7122500AE}
+		{6FF20E72-3FE3-4C9E-8C8C-613E150122ED} = {11B49AE9-E783-4C95-8389-F9E7122500AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E6BC78C-59F9-4C0B-B330-5C0F06959648}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoProposta.Infra.Data.Context;
 
@@ -11,9 +12,11 @@ using ProjetoProposta.Infra.Data.Context;
 namespace ProjetoProposta.Infra.Data.Migrations
 {
     [DbContext(typeof(PropostaAppDbContext))]
-    partial class PropostaAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250807045400_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

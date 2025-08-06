@@ -1,16 +1,20 @@
 ﻿//using ProjetoProposta.Domain.Adapters;
 using ProjetoProposta.Domain.Entities;
 using ProjetoProposta.Domain.Ports;
+using ProjetoProposta.Infra.Messages.Producer;
 
 namespace ProjetoProposta.Application.Services;
 
 public class ProporsalServiceManager : IProposalService
 {
     private readonly IProposalRepository _proposalRepository;
+    private readonly MessageProducer _messageProducer;
 
-    public ProporsalServiceManager(IProposalRepository proposalRepository)
+    public ProporsalServiceManager(IProposalRepository proposalRepository, 
+        MessageProducer messageProducer)
     {
         _proposalRepository = proposalRepository;
+        _messageProducer = messageProducer;
     }
 
     public async Task<IEnumerable<Proposal>> GetAllProposalsAsync()
@@ -23,12 +27,20 @@ public class ProporsalServiceManager : IProposalService
     {
         await _proposalRepository.Insert(proposal);
         //_emailAdapter.SendEmail("andersonjardim@gmail.com", "teste@email.com", "User was included with sucess...", "Added user");
+
+        if(proposal.Status == 1)
+        {
+            _messageProducer.SendMessage(proposal);
+        };
+        
+        //_emailAdapter.SendEmail("macoratti@gmail.com", "teste@email.com", "User was included with sucess...", "Added user");
         return proposal;
     }
 
     public async Task<Proposal> UpdateProposalAsync(Proposal proposal)
     {
         var proposalUpdated = await _proposalRepository.Update(proposal);
+        //_emailAdapter.SendEmail("macoratti@gmail.com", "teste@email.com", "User was updated with sucess...", "Updated user");
         //_emailAdapter.SendEmail("andersonjardim@gmail.com", "teste@email.com", "User was updated with sucess...", "Updated user");
         return proposalUpdated;
     }

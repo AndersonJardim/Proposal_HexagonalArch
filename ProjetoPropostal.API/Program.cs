@@ -1,5 +1,6 @@
 using ProjetoProposta.Application;
 using ProjetoProposta.Infra.Data;
+using ProjetoProposta.Infra.Messages.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDataBaseService(builder.Configuration);
 builder.Services.AddApplicationService();
+builder.Services.AddRabbitMQ(builder.Configuration);
 
 var app = builder.Build();
 

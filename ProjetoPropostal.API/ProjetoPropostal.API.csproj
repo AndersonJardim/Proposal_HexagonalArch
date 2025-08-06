@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ProjetoProposta.Application\ProjetoProposta.Application.csproj" />
     <ProjectReference Include="..\ProjetoProposta.Infra.Data\ProjetoProposta.Infra.Data.csproj" />
+    <ProjectReference Include="..\ProjetoProposta.Infra.Messages\ProjetoProposta.Infra.Messages.csproj" />
   </ItemGroup>
 
 </Project>
