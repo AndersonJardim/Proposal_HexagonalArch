@@ -28,6 +28,7 @@ public class UsersController : ControllerBase
 
         return Ok(user);
     }
+
     [HttpPut("{id:Guid}")]
     public async Task<IActionResult> UpdateUser(Guid id, User user)
     {
@@ -40,6 +41,7 @@ public class UsersController : ControllerBase
 
         return Ok(user);
     }
+
     [HttpDelete("{id:Guid}")]
     public async Task<IActionResult> DeleteUser(Guid id)
     {
