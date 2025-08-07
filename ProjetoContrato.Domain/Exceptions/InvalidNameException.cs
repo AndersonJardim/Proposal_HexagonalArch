@@ -1,4 +1,4 @@
-﻿namespace Domain.Exceptions;
+﻿namespace ProjetoContrato.Domain.Exceptions;
 
 public class InvalidNameException : Exception
 {

@@ -3,7 +3,7 @@ using ProjetoProposta.Domain.Entities;
 using ProjetoProposta.Domain.Ports;
 using ProjetoProposta.Infra.Data.Context;
 
-namespace Infra.Data.Repositories;
+namespace ProjetoProposta.Infra.Data.Repositories;
 
 public class ProposalRepository : IProposalRepository
 {

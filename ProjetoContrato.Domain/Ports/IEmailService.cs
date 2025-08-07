@@ -1,4 +1,4 @@
-﻿namespace Domain.Adapters;
+﻿namespace ProjetoContrato.Domain.Adapters;
 
 public interface IEmailService
 {

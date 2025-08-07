@@ -1,6 +1,7 @@
 ﻿//using ProjetoProposta.Domain.Adapters;
 using ProjetoProposta.Domain.Entities;
 using ProjetoProposta.Domain.Ports;
+//ProjetoProposta.Domain.Ports;
 using ProjetoProposta.Infra.Messages.Producer;
 
 namespace ProjetoProposta.Application.Services;
@@ -33,14 +34,13 @@ public class ProporsalServiceManager : IProposalService
             _messageProducer.SendMessage(proposal);
         };
         
-        //_emailAdapter.SendEmail("macoratti@gmail.com", "teste@email.com", "User was included with sucess...", "Added user");
+        //_emailAdapter.SendEmail("andersonjardim@gmail.com", "teste@email.com", "User was included with sucess...", "Added user");
         return proposal;
     }
 
     public async Task<Proposal> UpdateProposalAsync(Proposal proposal)
     {
         var proposalUpdated = await _proposalRepository.Update(proposal);
-        //_emailAdapter.SendEmail("macoratti@gmail.com", "teste@email.com", "User was updated with sucess...", "Updated user");
         //_emailAdapter.SendEmail("andersonjardim@gmail.com", "teste@email.com", "User was updated with sucess...", "Updated user");
         return proposalUpdated;
     }

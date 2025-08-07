@@ -1,20 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProjetoProposta.Domain.Ports;
-using ProjetoProposta.Infra.Data.Context;
-using ProjetoProposta.Infra.Data.Repositories;
+using ProjetoContrato.Domain.Ports;
+using ProjetoContrato.Infra.Data.Context;
+using ProjetoContrato.Infra.Data.Repositories;
 
-namespace ProjetoProposta.Infra.Data;
+namespace ProjetoContrato.Infra.Data;
 
 public static class ServiceInfraDataExtensions
 {
     public static IServiceCollection AddDataBaseService(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<PropostaAppDbContext>(options => options
+        services.AddDbContext<ContratoAppDbContext>(options => options
             .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IProposalRepository, ProposalRepository>();
+        services.AddScoped<IContractRepository, ContractRepository>();
         return services;
     }
 }

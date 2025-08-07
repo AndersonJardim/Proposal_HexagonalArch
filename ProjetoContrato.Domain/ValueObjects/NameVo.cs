@@ -1,6 +1,6 @@
-﻿using Domain.Exceptions;
+﻿using ProjetoContrato.Domain.Exceptions;
 
-namespace Domain.ValueObjects;
+namespace ProjetoContrato.Domain.ValueObjects;
 
 public class NameVo
 {
