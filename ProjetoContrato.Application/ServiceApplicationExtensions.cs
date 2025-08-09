@@ -2,7 +2,7 @@
 using ProjetoContrato.Application.Services;
 using ProjetoContrato.Domain.Ports;
 
-namespace ProjetoProposta.Application;
+namespace ProjetoContrato.Application;
 
 public static class ServiceApplicationExtensions
 {
