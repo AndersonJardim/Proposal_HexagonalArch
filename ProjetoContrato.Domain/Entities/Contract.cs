@@ -1,6 +1,4 @@
-﻿using ProjetoContrato.Domain.Exceptions;
-
-namespace ProjetoContrato.Domain.Entities;
+﻿namespace ProjetoContrato.Domain.Entities;
 
 public sealed class Contract
 {

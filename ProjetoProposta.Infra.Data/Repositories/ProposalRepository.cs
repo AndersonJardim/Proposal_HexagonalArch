@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoProposta.Domain.Entities;
 using ProjetoProposta.Domain.Ports;
-using ProjetoProposta.Infra.Data.Context;
 
 namespace ProjetoProposta.Infra.Data.Repositories;
 

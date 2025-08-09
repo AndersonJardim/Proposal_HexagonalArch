@@ -1,6 +1,4 @@
-﻿using ProjetoProposta.Domain.Exceptions;
-
-namespace ProjetoProposta.Domain.Entities;
+﻿namespace ProjetoProposta.Domain.Entities;
 
 public sealed class Proposal
 {

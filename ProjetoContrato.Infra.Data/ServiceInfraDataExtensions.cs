@@ -14,7 +14,7 @@ public static class ServiceInfraDataExtensions
         services.AddDbContext<ContratoAppDbContext>(options => options
             .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IContractRepository, ContractRepository>();
+        services.AddTransient<IContractRepository, ContractRepository>();
         return services;
     }
 }

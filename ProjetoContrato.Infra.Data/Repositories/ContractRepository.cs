@@ -1,13 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjetoContrato.Domain.Entities;
 using ProjetoContrato.Domain.Ports;
 using ProjetoContrato.Infra.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoContrato.Infra.Data.Repositories;
 

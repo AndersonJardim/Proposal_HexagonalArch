@@ -11,6 +11,7 @@ public static class ServiceInfraDataExtensions
 {
     public static IServiceCollection AddDataBaseService(this IServiceCollection services, IConfiguration configuration)
     {
+        var teste = configuration.GetSection("RabbitMqSettings");
         services.AddDbContext<PropostaAppDbContext>(options => options
             .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
