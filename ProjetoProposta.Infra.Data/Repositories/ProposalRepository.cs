@@ -12,12 +12,12 @@ public class ProposalRepository : IProposalRepository
     {
         _context = context;
     }
-    public async Task<IEnumerable<Proposal>> GetAll()
+    public async Task<IEnumerable<Proposal>> GetAllAsync()
     {
         return await _context.Proposals.ToListAsync();
     }
 
-    public async Task<Proposal> Insert(Proposal proposal)
+    public async Task<Proposal> InsertAsync(Proposal proposal)
     {
         if (proposal is null)
         {
@@ -28,13 +28,13 @@ public class ProposalRepository : IProposalRepository
         await _context.SaveChangesAsync();
         return proposal;
     }
-    public async Task<Proposal> Update(Proposal proposal)
+    public async Task<Proposal> UpdateProposalAsync(Proposal proposal)
     {
         _context.Proposals.Update(proposal);
         await _context.SaveChangesAsync();
         return proposal;
     }
-    public async Task<Proposal> Delete(Guid id)
+    public async Task<Proposal> DeleteAsync(Guid id)
     {
         var proposal = await _context.Proposals.FirstOrDefaultAsync(u => u.Id == id);
 

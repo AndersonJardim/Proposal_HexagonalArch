@@ -17,7 +17,7 @@ namespace ProjetoContrato.Infra.Messages.Service
             string conteudo = "escreveu...";
 
             // Grava o conteúdo no arquivo (sobrescreve se já existir)
-            await File.AppendAllTextAsync(caminhoCompleto, conteudo + Environment.NewLine);
+            // await File.AppendAllTextAsync(caminhoCompleto, conteudo + Environment.NewLine);
 
             Console.WriteLine($"Arquivo gravado em: {caminhoCompleto}");
         }

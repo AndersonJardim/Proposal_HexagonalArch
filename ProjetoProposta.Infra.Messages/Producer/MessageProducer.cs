@@ -32,12 +32,12 @@ namespace ProjetoProposta.Infra.Messages.Producer
                 arguments: null
             );
 
-            var jsonMessage = JsonConvert.SerializeObject( message );
-            var body = Encoding.UTF8.GetBytes( jsonMessage );
+            var jsonMessage = JsonConvert.SerializeObject(message);
+            var body = Encoding.UTF8.GetBytes(jsonMessage);
 
             model.BasicPublish(
                 exchange: string.Empty,
-                routingKey: string.Empty,
+                routingKey: _rabbitMqSettings.Queue,
                 basicProperties: null,
                 body: body
             );

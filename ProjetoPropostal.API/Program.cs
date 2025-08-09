@@ -11,7 +11,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-var teste = builder.Configuration.GetSection("RabbitMQ").Get<RabbitMqSettings>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDataBaseService(builder.Configuration);
 builder.Services.AddApplicationService();

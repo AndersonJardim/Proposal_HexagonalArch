@@ -11,13 +11,12 @@ namespace ProjetoProposta.Infra.Messages.Extensions
         public static IServiceCollection AddRabbitMQ(this IServiceCollection services,
             IConfiguration configuration)
         {
-            var teste = configuration.GetSection("RabbitMqSettings");
-            var rabbitMQSettings = configuration.GetSection("RabbitMQ").Get<RabbitMqSettings>();
+            var rabbitMqSettings = new RabbitMqSettings();
 
             new ConfigureFromConfigurationOptions<RabbitMqSettings>(configuration.GetSection("RabbitMQ"))
-                .Configure(rabbitMQSettings);
+                .Configure(rabbitMqSettings);
 
-            services.AddSingleton(rabbitMQSettings);
+            services.AddSingleton(rabbitMqSettings);
             services.AddSingleton<MessageProducer>();
 
             return services;

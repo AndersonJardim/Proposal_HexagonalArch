@@ -24,28 +24,46 @@ public class PropostaController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegisterPropostal(Proposal proposal)
+    public async Task<IActionResult> RegisterPropostal(ProposalInsert proposal)
     {
-        await _proposalService.AddNewProposalAsync(proposal);
-
-        return Ok(proposal);
-    }
-
-    [HttpPut("{id:Guid}")]
-    public async Task<IActionResult> UpdateUser(Guid id, Proposal proposal)
-    {
-        if (id != proposal.Id)
+        try
         {
-            return BadRequest();
+            await _proposalService.AddNewProposalAsync(new Proposal
+            {
+                Name = proposal.Name,
+                Status = proposal.Status
+            });
+
+            return Ok(proposal);
         }
-
-        await _proposalService.UpdateProposalAsync(proposal);
-
-        return Ok(proposal);
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
-    [HttpDelete("{id:Guid}")]
-    public async Task<IActionResult> DeleteUser(Guid id)
+    [HttpPut]
+    public async Task<IActionResult> UpdateProposalAsync(Proposal proposal)
+    {
+        try
+        {
+            if (proposal.Id is null)
+            {
+                return BadRequest("Id não pode ser nulo.");
+            }
+
+            await _proposalService.UpdateProposalAsync(proposal);
+
+            return Ok(proposal);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteUser([FromQuery] Guid id)
     {
         var user = await _proposalService.DeleteProposalAsync(id);
 
