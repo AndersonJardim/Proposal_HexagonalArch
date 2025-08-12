@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using ProjetoContrato.Domain.Entities;
+using ProjetoContrato.Domain.Ports;
 using ProjetoContrato.Infra.Messages.Service;
 using ProjetoContrato.Infra.Messages.Settings;
 using RabbitMQ.Client;
@@ -12,10 +14,12 @@ namespace ProjetoContrato.Infra.Messages.Consumer
     public class MessageConsumer : BackgroundService
     {
         private readonly RabbitMqSettings _rabbitMqSettings;
+        private readonly IServiceProvider _serviceProvider;
 
-        public MessageConsumer(RabbitMqSettings rabbitMqSettings)
+        public MessageConsumer(RabbitMqSettings rabbitMqSettings, IServiceProvider serviceProvider)
         {
             _rabbitMqSettings = rabbitMqSettings;
+            _serviceProvider = serviceProvider;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -44,7 +48,10 @@ namespace ProjetoContrato.Infra.Messages.Consumer
 
                 var message = JsonConvert.DeserializeObject<Contract>(body);
 
-                await UpdateTeste.ConsumeMessage();
+                using var scope = _serviceProvider.CreateScope();
+                var contractRepository = scope.ServiceProvider.GetRequiredService<IContractRepository>();
+
+                await contractRepository.Insert(message);
 
                 model.BasicAck(args.DeliveryTag, false);
             };
